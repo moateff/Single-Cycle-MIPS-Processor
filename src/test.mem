@@ -1,0 +1,51 @@
+01098020  // ADD $s0, $t0, $t1  --> $s0 = $t0 + $t1
+          // Adds the values in registers $t0 and $t1, stores the result in $s0.
+          // Example: If $t0 = 8, $t1 = 9, then $s0 = 8 + 9 = 17.
+
+01098024  // AND $s0, $t0, $t1  --> $s0 = $t0 & $t1
+          // Performs a bitwise AND on $t0 and $t1, stores the result in $s0.
+          // Example: If $t0 = 8 (1000), $t1 = 9 (1001), then $s0 = 8 & 9 = 8 (1000).
+
+01098022  // SUB $s0, $t0, $t1  --> $s0 = $t0 - $t1
+          // Subtracts the value in $t1 from $t0 and stores the result in $s0.
+          // Example: If $t0 = 8, $t1 = 9, then $s0 = 8 - 9 = -1.
+
+0109802A  // SLT $s0, $t0, $t1  --> $s0 = ($t0 < $t1) ? 1 : 0
+          // Sets $s0 to 1 if $t0 is less than $t1, otherwise sets it to 0.
+          // Example: If $t0 = 8, $t1 = 9, then $s0 = 1 (since 8 < 9).
+
+01098025  // OR  $s0, $t0, $t1  --> $s0 = $t0 | $t1
+          // Performs a bitwise OR on $t0 and $t1, stores the result in $s0.
+          // Example: If $t0 = 8 (1000), $t1 = 9 (1001), then $s0 = 9 (1001).
+
+01098018  // MULT $s0, $t0, $t1 --> $s0 = $t0 * $t1
+          // Multiplies the values in $t0 and $t1, stores the lower 32 bits of the result in $s0.
+          // Example: If $t0 = 8, $t1 = 9, then $s0 = 8 * 9 = 72.
+
+ad100004  // SW $s0, 4($t0)  --> MEM[$t0 + 4] = $s0
+          // Store word: Stores the value in $s0 into memory at the address ($t0 + 4).
+          // Example: If $t0 = 16, $s0 = 72, then MEM[20] = 72.
+          
+8d100004  // LW $s0, 4($t0)  --> $s0 = MEM[$t0 + 4]
+          // Load word: Loads the word from memory at the address ($t0 + 4) and stores it in $s0.
+          // Example: If $t0 = 16, and MEM[20] = 72, then $s0 = 72.
+
+12300008  // BEQ $s1, $s0, 8  --> if ($s1 == $s0) then PC = PC + 4 + (8 * 4)
+          // Branch if equal: If the values in $s1 and $s0 are equal, branch to the address PC + 32.
+          // Example: If $s1 = $s0, the branch is taken, and the program jumps forward by 32 bytes.
+
+2110000a  // ADDI $s0, $t0, 10  --> $s0 = $t0 + 10
+          // Add immediate: Adds 10 to the value in $t0 and stores the result in $s0.
+          // Example: If $t0 = 5, then $s0 = 5 + 10 = 15.
+        
+01808022  // SUB $s0, $t4, $zero  --> $s0 = $t0 - $zero
+          // Subtract: Subtracts $zero from $t4 and stores the result in $s0.
+          // Example: If $t4 = 12, then $s0 = 12 - 0 = 12.
+                
+080003e8  // J 1000 (in decimal) --> PC = 1000
+          // Jump: Jumps to the address 1000 (in decimal).
+          // Example: The program counter (PC) is set to 1000.
+
+00000000  // NOP (No Operation)
+          // Does nothing, used as a filler instruction.
+          // Example: No change in the state of the registers or memory.

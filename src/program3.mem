@@ -1,0 +1,9 @@
+00008020   //        add $s0, $zero, $zero        // Initialize $s0 to 0 (i.e., $s0 = 0)
+20100007   //        addi $s0, $zero, 0x07        // Load the number 0x07 (7 in decimal) into $s0 (i.e., $s0 = 7)
+00008820   //        add $s1, $zero, $zero        // Initialize $s1 to 0 (i.e., $s1 = 0)
+20110001   //        addi $s1, $zero, 0x01        // Load the number 0x01 (1 in decimal) into $s1 (i.e., $s1 = 1)
+12000003   // label: beq $s0, $zero, 0x3          // Check if $s0 == $zero (i.e., if $s0 == 0), if true, branch 3 instructions forward. Since $s0 = 7, this does not branch.
+02308818   //        mul $s1, $s1, $s0            // Multiply $s1 by $s0 (i.e., $s1 = $s1 * $s0 = 1 * 7 = 7)
+2210ffff   //        addi $s0, $s0, -1            // Subtract 1 from $s0 (i.e., $s0 = $s0 - 1 = 7 - 1 = 6)
+08000004   //        j label                      // Jump to address 0x4 (loop or continue logic)
+ac110000   //        sw $s1, 0($zero)             // Store the value of $s1 (7) into memory at address 0
