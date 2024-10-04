@@ -34,7 +34,7 @@ module MIPS_ARCHITECTURE(
     // Instantiate the MIPS_PROCESSOR module
     MIPS_PROCESSOR mips_processor(
         .reset(reset),
-        .clk(clk),
+        .clk(clk), 
         .instruction(instruction),
         .read_data(read_data),
         .PC(PC),
@@ -54,7 +54,7 @@ module MIPS_ARCHITECTURE(
     DATA_MEM data_memory(
         .addr(alu_out),
         .r_data(read_data),
-        .write_en(mem_write),
+        .wr_en(mem_write),
         .w_data(write_data),
         .clk(clk),
         .reset(reset)

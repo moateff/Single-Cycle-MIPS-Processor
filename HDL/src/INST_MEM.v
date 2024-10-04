@@ -40,6 +40,6 @@ module INST_MEM(
     always @(posedge reset)
     begin
         if (reset)
-            $readmemh("program1.mem", Memory); // Load memory contents from the file "program2.mem"
+            $readmemh("program3.mem", Memory); // Load memory contents from the file "program2.mem"
     end
 endmodule

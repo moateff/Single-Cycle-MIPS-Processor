@@ -23,25 +23,24 @@
 module MIPS_PROCESSOR(
     input         reset,
     input         clk,
-    input  [31:0] instruction_F,
-    output [31:0] PC_F,
-    input  [31:0] read_data_M,
-    output [31:0] alu_out_M,
-    output [31:0] write_data_M,
+    input  [31:0] instruction,
+    output [31:0] PC,
+    input  [31:0] read_data,
+    output [31:0] alu_out,
+    output [31:0] write_data,
     output        mem_write
     );
     
-    wire [5:0] opcode_D; 
-    wire [5:0] funct_D;
-    wire       reg_write_E, reg_write_M, reg_write_W;
-    wire       reg_dest_E;
-    wire       alu_src_E;
-    wire       PC_src_D;
-    wire       mem_to_reg_E, mem_to_reg_M, mem_to_reg_W;
-    wire [2:0] alu_control_E;
-    wire       flush_E;
-    wire       equal_D;
-      
+    wire       reg_write;
+    wire       reg_dest;
+    wire       alu_src;
+    wire       PC_src;
+    wire       mem_to_reg;
+    wire       jump;
+    wire       zero_flag; 
+    wire [2:0] alu_control;
+    
+    
     // Instantiate the CONTROL_UNIT module
     CONTROL_UNIT control_unit (
         .opcode(instruction[31:26]),
@@ -58,7 +57,7 @@ module MIPS_PROCESSOR(
     );
         
     // Instantiate the DATA_PATH module
-    DATA_PATH datapath (
+    DATA_PATH data_path (
         .reset(reset),
         .clk(clk),
         .instruction(instruction[25:0]),
@@ -75,4 +74,5 @@ module MIPS_PROCESSOR(
         .alu_out(alu_out),
         .write_data(write_data)
     );
+    
 endmodule

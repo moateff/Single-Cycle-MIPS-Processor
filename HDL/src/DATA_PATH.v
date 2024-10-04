@@ -98,7 +98,6 @@ module DATA_PATH(
     assign write_data = r_data2;
     assign alu_out = alu_result;
     
-    /////////////////////////////////////////////////////////////////////////////////     
     wire [31:0] PC_next;     // Final next PC address
     
     D_FF_Nbit #(.N(32)) D_FF(
